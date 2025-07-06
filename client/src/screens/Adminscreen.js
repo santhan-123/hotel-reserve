@@ -4,7 +4,7 @@ import Loader from "../components/Loader";
 import Swal from "sweetalert2";
 import { Tabs } from "antd";
 const { TabPane } = Tabs;
-
+const API_URL = process.env.REACT_APP_API_URL;
 function Adminscreen() {
   if (!JSON.parse(localStorage.getItem("currentUser")).data.isAdmin) {
     window.location.href = "/home";
@@ -44,7 +44,7 @@ export function Bookings() {
     const fetchData = async () => {
       try {
         const data = await (
-          await axios.get("/api/bookings/getallbookings")
+          await axios.get(`${API_URL}/api/bookings/getallbookings`)
         ).data;
         setBookings(data);
         setLoading(false);
@@ -103,7 +103,9 @@ export function Rooms() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await (await axios.get("/api/rooms/getallrooms")).data;
+        const data = await (
+          await axios.get(`${API_URL}/api/rooms/getallrooms`)
+        ).data;
         setRooms(data);
         setLoading(false);
       } catch (error) {
@@ -159,7 +161,9 @@ export function Users() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await (await axios.get("/api/user/getallusers")).data;
+        const data = await (
+          await axios.get(`${API_URL}/api/user/getallusers`)
+        ).data;
         setUsers(data);
         setLoading(false);
       } catch (error) {
@@ -229,9 +233,9 @@ export function AddRoom() {
     };
 
     try {
-        setloading(true);
+      setloading(true);
       axios
-        .post("/api/rooms/addroom", newroom)
+        .post(`${API_URL}/api/rooms/addroom`, newroom)
         .then((response) => {
           Swal.fire("Room Added", "Room added successfully", "success").then(
             () => {
@@ -252,7 +256,7 @@ export function AddRoom() {
   return (
     <div className="row">
       <div className="col-md-5">
-      {loading && <Loader />}
+        {loading && <Loader />}
         <input
           type="text"
           placeholder="Room Name"

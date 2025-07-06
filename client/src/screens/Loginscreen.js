@@ -3,6 +3,8 @@ import axios from "axios";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 function Loginscreen() {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -16,7 +18,7 @@ function Loginscreen() {
     };
     try {
       setloading(true);
-      const result = await axios.post("/api/user/login", user);
+      const result = await axios.post(`${API_URL}/api/user/login`, user);
       console.log(result);
       setloading(false);
       localStorage.setItem("currentUser", JSON.stringify(result));

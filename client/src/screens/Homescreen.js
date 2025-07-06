@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Room from "../components/Room";
 import Loader from "../components/Loader";
-import Error from "../components/Error";
+// import Error from "../components/Error"; // Not used
 import moment from "moment";
-import { DatePicker, Space } from "antd";
+import { DatePicker } from "antd";
 const { RangePicker } = DatePicker;
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 function Homescreen() {
   // Correctly use useState for state initialization
@@ -23,7 +25,7 @@ function Homescreen() {
     const fetchRooms = async () => {
       try {
         setLoading(true);
-        const data = (await axios.get("/api/rooms/getallrooms")).data;
+        const data = (await axios.get(`${API_URL}/api/rooms/getallrooms`)).data;
         setRooms(data);
         setDuplicateRooms(data);
         setLoading(false);

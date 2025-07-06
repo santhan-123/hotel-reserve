@@ -6,6 +6,8 @@ import Loader from "../components/Loader";
 import Error from "../components/Error";
 import swal from "sweetalert2";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 function Bookingscreen() {
   const { roomid, fromDate, toDate } = useParams();
   const [loading, setloading] = useState(true);
@@ -25,7 +27,7 @@ function Bookingscreen() {
       }
       try {
         setloading(true);
-        const { data } = await axios.post("/api/rooms/getroombyid", {
+        const { data } = await axios.post(`${API_URL}/api/rooms/getroombyid`, {
           roomid,
         });
         settotalamt(data.rentperday * totalDays);
@@ -38,18 +40,18 @@ function Bookingscreen() {
     };
 
     fetchData();
-  }, [roomid]);
+  }, [roomid, totalDays]);
 
   const openRazorpay = async () => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"))?.data;
 
     try {
-      const { data: order } = await axios.post("/api/bookings/createorder", {
+      const { data: order } = await axios.post(`${API_URL}/api/bookings/createorder`, {
         amount: totalamt,
       });
 
       const options = {
-        key:'rzp_test_paqzJjXjh8alF1', // Replace with your key
+        key:process.env.RAZORPAY_KEY_ID, // Replace with your key
         amount: order.amount,
         currency: "INR",
         name: "Hotel Reservation",
@@ -70,7 +72,7 @@ function Bookingscreen() {
 
           try {
             setloading(true);
-            await axios.post("/api/bookings/bookroom", bookingDetails);
+            await axios.post(`${API_URL}/api/bookings/bookroom`, bookingDetails);
             setloading(false);
             swal.fire("Success", "Booking successful!", "success").then(() => {
               window.location.href = "/bookings";

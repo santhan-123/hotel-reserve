@@ -5,6 +5,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { Tag } from "antd";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const { TabPane } = Tabs;
 
 function Profilescreen() {
@@ -54,9 +56,12 @@ export function MyBookings() {
     const fetchBookings = async () => {
       try {
         setLoading(true);
-        const response = await axios.post("/api/bookings/getbookingsbyuserid", {
-          userid: user.data._id,
-        });
+        const response = await axios.post(
+          `${API_URL}/api/bookings/getbookingsbyuserid`,
+          {
+            userid: user.data._id,
+          }
+        );
         setBookings(response.data);
         setLoading(false);
       } catch (error) {
@@ -77,7 +82,7 @@ export function MyBookings() {
   async function cancelBooking(bookingid, roomid) {
     try {
       setLoading(true);
-      await axios.post("/api/bookings/cancelbooking", {
+      await axios.post(`${API_URL}/api/bookings/cancelbooking`, {
         bookingid: bookingid,
         roomid: roomid,
       });
@@ -127,7 +132,7 @@ export function MyBookings() {
                 </p>
 
                 {booking.status !== "cancelled" && (
-                  <div style={{textAlign: "right"}}>
+                  <div style={{ textAlign: "right" }}>
                     <button
                       className="btn btn-primary"
                       onClick={() => cancelBooking(booking._id, booking.roomid)}

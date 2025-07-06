@@ -4,6 +4,8 @@ import Error from "../components/Error";
 import Success from "../components/Success";
 import axios from "axios";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 function Registerscreen() {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
@@ -15,7 +17,7 @@ function Registerscreen() {
   const [success, setsuccess] = useState();
 
   const register = async () => {
-    if (password == conformpassword) {
+    if (password === conformpassword) {
       const user = {
         name,
         email,
@@ -24,7 +26,7 @@ function Registerscreen() {
       };
       try {
         setloading(true);
-        const result = await axios.post("/api/user/register", user).data;
+        const result = await axios.post(`${API_URL}/api/user/register`, user).data;
         setloading(false);
         setsuccess(true);
 
