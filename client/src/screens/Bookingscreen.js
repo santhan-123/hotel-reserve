@@ -51,7 +51,7 @@ function Bookingscreen() {
       });
 
       const options = {
-        key:process.env.RAZORPAY_KEY_ID, // Replace with your key
+        key: process.env.REACT_APP_RAZORPAY_KEY_ID, // Replace with your key
         amount: order.amount,
         currency: "INR",
         name: "Hotel Reservation",
