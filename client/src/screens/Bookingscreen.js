@@ -11,7 +11,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 function Bookingscreen() {
   const { roomid, fromDate, toDate } = useParams();
   const [loading, setloading] = useState(true);
-  const [error, seterror] = useState();
+  const [, seterror] = useState();
   const [room, setroom] = useState();
 
   const startDate = moment(fromDate, "DD-MM-YYYY");

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Your MongoDB URL
-const mongoURL = 'mongodb+srv://rishi_db:rishi123@cluster0.cbhlk.mongodb.net/hotel-reserve';
+const mongoURL = process.env.MONGODB_URI;
 
 mongoose.connect(mongoURL)
   .then(() => console.log('MongoDB connected successfully'))

@@ -13,7 +13,7 @@ function Homescreen() {
   // Correctly use useState for state initialization
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState();
-  const [error, setError] = useState();
+  const [, setError] = useState();
   // Initialize fromDate and toDate state variables
   const [fromDate, setFromDate] = useState();
   const [toDate, setToDate] = useState();
@@ -75,7 +75,7 @@ function Homescreen() {
             }
           }
         }
-        if (availability == true || room.currentbookings.length == 0) {
+        if (availability === true || room.currentbookings.length === 0) {
           temprooms.push(room);
         }
       }
