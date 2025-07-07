@@ -11,7 +11,7 @@ const bookingRoute = require("./routes/bookingRoute");
 // Enable CORS *before* routes
 app.use(cors({
   origin: [
-    'hotel-reserve-d7fpeva2p-santhan-s-projects.vercel.app'
+    'https://hotel-reserve-eta.vercel.app/'
   ],
   credentials: true
 }));
