@@ -13,7 +13,8 @@ app.use(cors({
   origin: [
     'https://hotel-reserve-eta.vercel.app',
     'https://hotel-reserve-87okyw6fd-santhan-s-projects.vercel.app',
-    'http://hotel-reserve-grzrrhu5s-santhan-s-projects.vercel.app'
+    'http://hotel-reserve-grzrrhu5s-santhan-s-projects.vercel.app',
+    'https://hotel-reserve-eta.vercel.app'
   ],
   credentials: true
 }));
