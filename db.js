@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 // Your MongoDB URL
-const mongoURL = process.env.MONGODB_URI;
+const mongoURL = 'mongodb+srv://rishi_db:rishi123@cluster0.cbhlk.mongodb.net/';
 
 mongoose.connect(mongoURL)
   .then(() => console.log('MongoDB connected successfully'))
