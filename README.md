@@ -10,6 +10,7 @@ A full-stack hotel reservation web application built with React (frontend) and N
 
 ---
 
+<<<<<<< HEAD
 ## Unique Features & Highlights
 - **End-to-End Booking Flow:** Users can search, filter, and book rooms with real-time availability.
 - **Razorpay Payment Integration:** Secure, real-world payment gateway for instant booking confirmation.
@@ -22,6 +23,8 @@ A full-stack hotel reservation web application built with React (frontend) and N
 
 ---
 
+=======
+>>>>>>> 335c6b56ff13bb9937b0a7677a4e1dc92db65096
 ## Features
 - User registration and login
 - Room listing and search

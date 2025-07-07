@@ -16,7 +16,7 @@ function Profilescreen() {
     if (!user) {
       window.location.href = "/login";
     }
-  }, []);
+  }, [user.data._id]);
 
   return (
     <div className="mt-5 ms-3">
