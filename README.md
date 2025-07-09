@@ -6,7 +6,7 @@ A full-stack hotel reservation web application built with React (frontend) and N
 
 ## Live Demo
 
-[Hotel Reserve App (Vercel)](https://hotel-reserve-87okyw6fd-santhan-s-projects.vercel.app)
+[Hotel Reserve App https://hotel-reserve-eta.vercel.app
 
 ---
 
